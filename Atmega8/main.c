@@ -79,7 +79,7 @@ void SetupPins()
 void SetupInterrups()
 {
 	sei();
-	GICR = /*(1 << INT0) |*/ (1 << INT1);
+	GICR = (1 << INT1);
 	MCUCR = (1 << ISC11) | (1 << ISC00) | (1 << ISC01);
 }
 
@@ -109,11 +109,6 @@ void PrintTime()
 		PORTD &= ~(1 << PIND6);
 	}
 }
-
-//ISR (INT0_vect)
-//{
-	//UpdateTime();
-//}
 
 ISR (INT1_vect)
 {
